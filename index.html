@@ -292,6 +292,32 @@
           transition: none;
         }
       }
+      .marquee-track {
+        animation: marquee-scroll 28s linear infinite;
+        will-change: transform;
+      }
+
+      @keyframes marquee-scroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+          animation-play-state: paused;
+        }
+      }
+      .hero-fade {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+        will-change: opacity, transform, filter;
+      }
     </style>
   </head>
 
@@ -409,32 +435,40 @@
 
         <div
           id="heroCopy"
-          class="absolute inset-x-0 top-0 z-20 flex h-full items-center"
+          class="absolute left-0 top-0 z-20 flex h-screen w-full items-center px-6 text-white md:px-12"
         >
-          <div class="mx-auto w-full max-w-[1540px] px-7 lg:px-16">
-            <div class="max-w-2xl text-white">
-              <p
-                class="mb-5 text-[10px] font-medium tracking-[.3em] text-champagne md:text-xs"
-              >
-                HANDMADE WITH LOVE
-              </p>
-              <h1
-                class="font-serif text-[clamp(3.5rem,6.4vw,7.5rem)] font-medium leading-[.82] tracking-[-.025em]"
-              >
-                A Journey<br />Woven by Hand
-              </h1>
-              <p
-                class="mt-7 max-w-lg text-sm font-light leading-7 text-white/85 md:text-base"
-              >
-                Timeless crochet bags, crafted stitch by stitch.
-              </p>
-              <a
-                href="#collection"
-                class="mt-8 inline-flex items-center gap-4 rounded-full bg-ivory px-7 py-4 text-[10px] font-semibold tracking-[.12em] text-ink transition duration-300 hover:bg-champagne md:px-9"
-                >EXPLORE THE COLLECTION
-                <i data-lucide="arrow-up-right" class="h-4 w-4"></i
-              ></a>
-            </div>
+          <div class="w-full max-w-[760px]">
+            <!-- Label -->
+            <p
+              class="hero-fade mb-7 text-[11px] font-semibold tracking-[.32em] text-champagne"
+            >
+              HANDMADE WITH LOVE
+            </p>
+
+            <!-- Heading -->
+            <h1
+              class="hero-fade max-w-[760px] font-serif text-[clamp(4rem,7vw,8rem)] leading-[.82] tracking-[-.04em]"
+            >
+              A Journey<br />
+              Woven by Hand
+            </h1>
+
+            <!-- Description -->
+            <p
+              class="hero-fade mt-10 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
+            >
+              Timeless crochet bags, crafted stitch by stitch.
+            </p>
+
+            <!-- Button -->
+            <a
+              href="#collection"
+              class="hero-fade mt-9 inline-flex items-center gap-8 rounded-full bg-ivory px-8 py-5 text-[10px] font-semibold tracking-[.14em] text-ink transition hover:bg-champagne"
+            >
+              EXPLORE THE COLLECTION
+
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </a>
           </div>
         </div>
 
@@ -872,17 +906,23 @@
       </section>
 
       <!-- MARQUEE -->
+      <!-- ELEGANT MARQUEE BAR -->
       <section
-        class="overflow-hidden border-b border-champagne/30 bg-wine py-6 text-champagne"
+        class="overflow-hidden border-y border-champagne/25 bg-wine py-3 md:py-4"
       >
-        <div
-          class="marquee flex w-max whitespace-nowrap font-serif text-3xl tracking-[.06em] md:text-5xl"
-        >
-          <span class="px-8"
-            >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES · </span
-          ><span class="px-8" aria-hidden="true"
-            >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES ·
-          </span>
+        <div class="marquee-track flex w-max items-center">
+          <p
+            class="whitespace-nowrap font-serif text-lg tracking-[.12em] text-champagne md:text-2xl"
+          >
+            HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES ·
+          </p>
+
+          <p
+            aria-hidden="true"
+            class="whitespace-nowrap font-serif text-lg tracking-[.12em] text-champagne md:text-2xl"
+          >
+            HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES ·
+          </p>
         </div>
       </section>
 
@@ -1021,10 +1061,6 @@
           2,
           "0",
         );
-
-        /* Keep the hero heading steady for the entire video journey. */
-        heroCopy.style.opacity = "1";
-        heroCopy.style.transform = "translate3d(0, 0, 0)";
       }
 
       function requestHeroFrame() {
@@ -1163,6 +1199,37 @@
           const isVisible = visual.classList.toggle("is-model-visible");
           visual.setAttribute("aria-pressed", String(isVisible));
         });
+      });
+
+      // Progressive hero content fade while scrolling
+      const heroFadeItems = gsap.utils.toArray(".hero-fade");
+
+      const heroFadeTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#home",
+          start: "top top",
+
+          // Finish fading within the first 42% of the hero scroll distance
+          end: () => {
+            const home = document.querySelector("#home");
+            return `+=${home.offsetHeight * 0.42}`;
+          },
+
+          scrub: 0.45,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      heroFadeTimeline.to(heroFadeItems, {
+        opacity: 0,
+        y: -38,
+        filter: "blur(7px)",
+        duration: 1,
+        stagger: {
+          each: 0.12,
+          from: "start",
+        },
+        ease: "none",
       });
     </script>
   </body>
