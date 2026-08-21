@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Love Croché — timeless handmade crochet bags, crafted stitch by stitch."
+    />
+    <title>Love Croché | Handmade Crochet Bags</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wine: "#66151d",
+              wineDark: "#3d0b11",
+              ivory: "#f8f3eb",
+              champagne: "#d7b56d",
+              ink: "#261c1c",
+            },
+            fontFamily: {
+              serif: ["Cormorant Garamond", "serif"],
+              sans: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --wine: #66151d;
+        --ivory: #f8f3eb;
+        --gold: #d7b56d;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: #f8f3eb;
+      }
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        color: #261c1c;
+        background: #f8f3eb;
+      }
+      #story,
+      #collection,
+      #contact {
+        scroll-margin-top: 80px;
+      }
+      ::selection {
+        color: #fff;
+        background: #66151d;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        width: 100%;
+        height: 1px;
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.35s ease;
+      }
+      .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      .hero-scroll {
+        height: 300vh;
+      }
+      .hero-sticky {
+        position: sticky;
+        top: 0;
+        height: 100svh;
+        overflow: hidden;
+        background: #130d0b;
+      }
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        will-change: contents;
+      }
+      .hero-poster {
+        transition: opacity 0.7s ease;
+      }
+      .hero-gradient {
+        z-index: 10;
+        pointer-events: none;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(18, 8, 6, 0.82) 0%,
+            rgba(22, 10, 8, 0.68) 20%,
+            rgba(22, 10, 8, 0.44) 38%,
+            rgba(22, 10, 8, 0.14) 58%,
+            rgba(22, 10, 8, 0) 76%
+          ),
+          linear-gradient(0deg, rgba(12, 7, 6, 0.35) 0%, rgba(12, 7, 6, 0) 45%);
+      }
+      .grain {
+        pointer-events: none;
+        opacity: 0.055;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+      }
+      .progress-fill {
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      .product-card .product-image {
+        transition:
+          transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+          filter 0.4s ease;
+      }
+      .product-card:hover .product-image {
+        transform: scale(1.045);
+      }
+      .bag-black {
+        filter: grayscale(1) brightness(0.48) contrast(1.18);
+      }
+      .bag-cream {
+        filter: saturate(0.2) sepia(0.22) brightness(1.15);
+      }
+      .bag-pink {
+        filter: hue-rotate(305deg) saturate(0.55) brightness(1.2);
+      }
+      .bag-green {
+        filter: hue-rotate(65deg) saturate(0.8) brightness(0.8);
+      }
+      .marquee {
+        animation: marquee 24s linear infinite;
+      }
+      @keyframes marquee {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .loader {
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
+      .loader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .mobile-menu {
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path 0.5s cubic-bezier(0.7, 0, 0.2, 1);
+      }
+      .mobile-menu.is-open {
+        clip-path: inset(0 0 0 0);
+      }
+      @media (max-width: 767px) {
+        .hero-scroll {
+          height: 300vh;
+        }
+        .hero-media {
+          object-position: center center;
+        }
+        .hero-gradient {
+          background: linear-gradient(
+            180deg,
+            rgba(18, 9, 8, 0.58),
+            rgba(18, 9, 8, 0.15) 42%,
+            rgba(18, 9, 8, 0.72)
+          );
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+        .hero-scroll {
+          height: 100vh;
+        }
+      }
+      .product-visual {
+        isolation: isolate;
+        background: #eadfd4;
+      }
+
+      .product-campaign-image,
+      .model-campaign-image {
+        transition:
+          opacity 0.65s ease,
+          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        backface-visibility: hidden;
+        will-change: opacity, transform;
+      }
+
+      .product-campaign-image {
+        z-index: 1;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .model-campaign-image {
+        z-index: 2;
+        opacity: 0;
+        transform: scale(1.045);
+      }
+
+      .model-overlay {
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.45s ease,
+          transform 0.55s ease;
+        pointer-events: none;
+      }
+
+      /* Desktop hover */
+      @media (hover: hover) and (pointer: fine) {
+        .product-visual:hover .product-campaign-image,
+        .product-visual:focus-visible .product-campaign-image {
+          opacity: 0;
+          transform: scale(1.045);
+        }
+
+        .product-visual:hover .model-campaign-image,
+        .product-visual:focus-visible .model-campaign-image {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        .product-visual:hover .model-overlay,
+        .product-visual:focus-visible .model-overlay {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile tap state */
+      .product-visual.is-model-visible .product-campaign-image {
+        opacity: 0;
+        transform: scale(1.045);
+      }
+
+      .product-visual.is-model-visible .model-campaign-image {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .product-visual.is-model-visible .model-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .product-visual:focus-visible {
+        outline: 2px solid #7a1720;
+        outline-offset: 4px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .product-campaign-image,
+        .model-campaign-image,
+        .model-overlay {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans antialiased">
+    <div
+      id="loader"
+      class="loader fixed inset-0 z-[100] grid place-items-center bg-ivory"
+    >
+      <div class="text-center">
+        <p class="font-serif text-4xl tracking-wide text-wine">LOVE CROCHÉ</p>
+        <div class="mx-auto mt-5 h-px w-36 overflow-hidden bg-wine/15">
+          <span class="block h-full w-1/2 animate-pulse bg-wine"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIXED SITE HEADER: kept outside the sticky hero so sections cannot cover it -->
+    <header
+      id="siteHeader"
+      class="fixed inset-x-0 top-0 z-[9999] border-b border-white/20 bg-[#3b2b24]/20 text-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-md backdrop-saturate-150"
+    >
+      <div
+        class="relative mx-auto flex h-20 w-full max-w-[1540px] items-center px-6 lg:px-12"
+      >
+        <a
+          href="#home"
+          class="relative z-10 whitespace-nowrap font-serif text-2xl tracking-[.04em] md:text-3xl"
+        >
+          LOVE CROCHÉ
+        </a>
+
+        <nav
+          class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 text-[11px] font-medium tracking-[.14em] lg:flex"
+        >
+          <a class="nav-link relative" href="#collection">SHOP</a>
+          <a class="nav-link relative" href="#collection">COLLECTIONS</a>
+          <a class="nav-link relative" href="#story">OUR STORY</a>
+          <a class="nav-link relative" href="#contact">CONTACT</a>
+        </nav>
+
+        <div class="relative z-10 ml-auto flex items-center gap-5">
+          <button
+            type="button"
+            aria-label="Search"
+            class="transition hover:text-champagne"
+          >
+            <i data-lucide="search" class="h-[18px] w-[18px]"></i>
+          </button>
+
+          <button
+            type="button"
+            id="cartButton"
+            aria-label="Shopping bag"
+            class="relative transition hover:text-champagne"
+          >
+            <i data-lucide="shopping-bag" class="h-[18px] w-[18px]"></i>
+            <span
+              id="cartCount"
+              class="absolute -right-2 -top-2 grid h-4 w-4 place-items-center rounded-full bg-wine text-[9px]"
+              >0</span
+            >
+          </button>
+
+          <button
+            type="button"
+            id="menuButton"
+            aria-label="Open menu"
+            class="lg:hidden"
+          >
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile menu also stays outside the sticky hero -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu fixed inset-0 z-[9998] flex flex-col justify-center bg-wineDark px-10 text-white lg:hidden"
+    >
+      <nav class="space-y-5 font-serif text-4xl">
+        <a class="mobile-link block" href="#collection">Shop</a>
+        <a class="mobile-link block" href="#collection">Collections</a>
+        <a class="mobile-link block" href="#story">Our Story</a>
+        <a class="mobile-link block" href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <!-- SCROLL-CONTROLLED HERO -->
+    <section id="home" class="hero-scroll relative">
+      <div class="hero-sticky">
+        <img
+          id="heroPoster"
+          class="hero-media hero-poster"
+          src="assets/mall-exterior.png"
+          alt="Elegant mall exterior"
+        />
+        <!-- Add your generated file as assets/hero.mp4 -->
+        <video
+          id="heroVideo"
+          class="hero-media opacity-0"
+          muted
+          playsinline
+          preload="auto"
+          disablepictureinpicture
+          poster="assets/mall-exterior.png"
+        >
+          <source
+            src="./assets/vid/mall-scroll-optimized-1080p.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="hero-gradient absolute inset-0"></div>
+        <div class="grain absolute inset-0"></div>
+
+        <div
+          id="heroCopy"
+          class="absolute inset-x-0 top-0 z-20 flex h-full items-center"
+        >
+          <div class="mx-auto w-full max-w-[1540px] px-7 lg:px-16">
+            <div class="max-w-2xl text-white">
+              <p
+                class="mb-5 text-[10px] font-medium tracking-[.3em] text-champagne md:text-xs"
+              >
+                HANDMADE WITH LOVE
+              </p>
+              <h1
+                class="font-serif text-[clamp(3.5rem,6.4vw,7.5rem)] font-medium leading-[.82] tracking-[-.025em]"
+              >
+                A Journey<br />Woven by Hand
+              </h1>
+              <p
+                class="mt-7 max-w-lg text-sm font-light leading-7 text-white/85 md:text-base"
+              >
+                Timeless crochet bags, crafted stitch by stitch.
+              </p>
+              <a
+                href="#collection"
+                class="mt-8 inline-flex items-center gap-4 rounded-full bg-ivory px-7 py-4 text-[10px] font-semibold tracking-[.12em] text-ink transition duration-300 hover:bg-champagne md:px-9"
+                >EXPLORE THE COLLECTION
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-7 left-1/2 z-20 w-[min(92%,760px)] -translate-x-1/2 text-white"
+        >
+          <div
+            class="mb-3 flex items-center justify-between text-[9px] tracking-[.2em]"
+          >
+            <span>SCROLL TO ENTER</span><span id="progressText">00</span>
+          </div>
+          <div class="h-px w-full bg-white/35">
+            <div
+              id="progressFill"
+              class="progress-fill h-px bg-champagne"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="relative z-10 bg-ivory">
+      <!-- STORY -->
+      <section id="story" class="px-6 py-24 md:px-12 md:py-36">
+        <div
+          class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.25fr_.75fr] lg:gap-20"
+        >
+          <div class="reveal relative overflow-hidden rounded-sm">
+            <img
+              src="assets/love-croche-boutique.png"
+              alt="Love Croché boutique"
+              class="aspect-[16/9] w-full object-cover transition duration-1000 hover:scale-[1.02]"
+            />
+            <div
+              class="absolute bottom-5 left-5 border border-white/30 bg-black/20 px-4 py-3 text-[9px] tracking-[.18em] text-white backdrop-blur-md"
+            >
+              THE LOVE CROCHÉ BOUTIQUE
+            </div>
+          </div>
+          <div class="reveal">
+            <p
+              class="mb-4 text-[10px] font-semibold tracking-[.28em] text-wine"
+            >
+              OUR CRAFT
+            </p>
+            <h2 class="font-serif text-5xl leading-[.92] text-wine md:text-7xl">
+              The Art of<br />Every Stitch
+            </h2>
+            <div class="my-7 h-px w-20 bg-champagne"></div>
+            <p class="max-w-md text-sm font-light leading-7 text-ink/70">
+              Each Love Croché bag is meticulously handcrafted by skilled
+              artisans using premium yarns and time-honored techniques.
+            </p>
+            <p class="mt-4 max-w-md text-sm font-light leading-7 text-ink/70">
+              More than a bag — it’s a piece of art, made to be loved and
+              cherished.
+            </p>
+            <a
+              href="#"
+              class="mt-8 inline-flex items-center gap-5 rounded-full border border-wine/40 px-7 py-3 text-[10px] font-semibold tracking-[.15em] text-wine transition hover:bg-wine hover:text-white"
+              >OUR STORY <i data-lucide="arrow-right" class="h-4 w-4"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT COLLECTION -->
+      <section
+        id="collection"
+        class="scroll-mt-20 border-y border-wine/10 px-6 py-24 md:px-12 md:py-32"
+      >
+        <div class="mx-auto max-w-[1380px]">
+          <!-- Section heading -->
+          <div
+            class="reveal mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end"
+          >
+            <div>
+              <p
+                class="mb-3 text-[10px] font-semibold tracking-[.28em] text-wine"
+              >
+                SIGNATURE COLLECTION
+              </p>
+
+              <h2 class="font-serif text-5xl text-wine md:text-7xl">
+                Curated for You
+              </h2>
+
+              <p class="mt-4 max-w-md text-sm font-light leading-7 text-ink/60">
+                Hover over each bag to see how it completes the look.
+              </p>
+            </div>
+
+            <a
+              href="#"
+              class="inline-flex items-center gap-3 text-[10px] font-semibold tracking-[.16em] text-wine"
+            >
+              VIEW ALL BAGS
+              <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </a>
+          </div>
+
+          <!-- 3 columns × 2 rows -->
+          <div class="grid gap-x-7 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+            <!-- MAROON HARMONY -->
+            <article class="product-card reveal group">
+              <div
+                class="product-visual relative aspect-[4/5] cursor-pointer overflow-hidden bg-[#eadfd4]"
+                tabindex="0"
+                role="button"
+                aria-label="View Maroon Harmony on a model"
+              >
+                <span
+                  class="absolute left-5 top-5 z-30 bg-ivory px-4 py-2 text-[8px] tracking-[.18em] text-ink"
+                >
+                  BESTSELLER
+                </span>
+
+                <!-- Product image -->
+                <img
+                  src="assets/products/product-maroon-harmony.png"
+                  alt="Maroon Harmony crochet bag"
+                  class="product-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <!-- Model image -->
+                <img
+                  src="assets/products/model-maroon-harmony.png"
+                  alt="Model wearing the Maroon Harmony crochet bag"
+                  class="model-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <div
+                  class="model-overlay absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 to-transparent px-6 pb-6 pt-20"
+                >
+                  <p
+                    class="text-[9px] font-semibold tracking-[.2em] text-white"
+                  >
+                    VIEW ON MODEL
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-serif text-3xl text-wine">
+                      Maroon Harmony
+                    </h3>
+                    <p class="mt-2 text-[10px] tracking-[.14em] text-ink/45">
+                      HANDCROCHETED
+                    </p>
+                  </div>
+
+                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                </div>
+
+                <button
+                  class="add-cart mt-5 w-full border border-wine/25 py-4 text-[9px] font-semibold tracking-[.17em] text-wine transition hover:bg-wine hover:text-white"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </article>
+
+            <!-- CLASSIC BLACK -->
+            <article class="product-card reveal group">
+              <div
+                class="product-visual relative aspect-[4/5] cursor-pointer overflow-hidden bg-[#181615]"
+                tabindex="0"
+                role="button"
+                aria-label="View Classic Black on a model"
+              >
+                <img
+                  src="assets/products/product-classic-black.png"
+                  alt="Classic Black crochet bag"
+                  class="product-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <img
+                  src="assets/products/model-classic-black.png"
+                  alt="Model wearing the Classic Black crochet bag"
+                  class="model-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <div
+                  class="model-overlay absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 to-transparent px-6 pb-6 pt-20"
+                >
+                  <p
+                    class="text-[9px] font-semibold tracking-[.2em] text-white"
+                  >
+                    VIEW ON MODEL
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-serif text-3xl text-wine">Classic Black</h3>
+                    <p class="mt-2 text-[10px] tracking-[.14em] text-ink/45">
+                      HANDCROCHETED
+                    </p>
+                  </div>
+
+                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                </div>
+
+                <button
+                  class="add-cart mt-5 w-full border border-wine/25 py-4 text-[9px] font-semibold tracking-[.17em] text-wine transition hover:bg-wine hover:text-white"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </article>
+
+            <!-- BEIGE HEART -->
+            <article class="product-card reveal group">
+              <div
+                class="product-visual relative aspect-[4/5] cursor-pointer overflow-hidden bg-[#eadcc8]"
+                tabindex="0"
+                role="button"
+                aria-label="View Beige Heart on a model"
+              >
+                <img
+                  src="assets/products/product-beige-heart.png"
+                  alt="Beige Heart crochet bag"
+                  class="product-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <img
+                  src="assets/products/model-beige-heart.png"
+                  alt="Model wearing the Beige Heart crochet bag"
+                  class="model-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <div
+                  class="model-overlay absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 to-transparent px-6 pb-6 pt-20"
+                >
+                  <p
+                    class="text-[9px] font-semibold tracking-[.2em] text-white"
+                  >
+                    VIEW ON MODEL
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-serif text-3xl text-wine">Beige Heart</h3>
+                    <p class="mt-2 text-[10px] tracking-[.14em] text-ink/45">
+                      HANDCROCHETED
+                    </p>
+                  </div>
+
+                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                </div>
+
+                <button
+                  class="add-cart mt-5 w-full border border-wine/25 py-4 text-[9px] font-semibold tracking-[.17em] text-wine transition hover:bg-wine hover:text-white"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </article>
+
+            <!-- BLUSH DREAM -->
+            <article class="product-card reveal group">
+              <div
+                class="product-visual relative aspect-[4/5] cursor-pointer overflow-hidden bg-[#eed9dc]"
+                tabindex="0"
+                role="button"
+                aria-label="View Blush Dream on a model"
+              >
+                <img
+                  src="assets/products/product-blush-dream.png"
+                  alt="Blush Dream crochet bag"
+                  class="product-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <img
+                  src="assets/products/model-blush-dream.png"
+                  alt="Model wearing the Blush Dream crochet bag"
+                  class="model-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <div
+                  class="model-overlay absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 to-transparent px-6 pb-6 pt-20"
+                >
+                  <p
+                    class="text-[9px] font-semibold tracking-[.2em] text-white"
+                  >
+                    VIEW ON MODEL
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-serif text-3xl text-wine">Blush Dream</h3>
+                    <p class="mt-2 text-[10px] tracking-[.14em] text-ink/45">
+                      HANDCROCHETED
+                    </p>
+                  </div>
+
+                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                </div>
+
+                <button
+                  class="add-cart mt-5 w-full border border-wine/25 py-4 text-[9px] font-semibold tracking-[.17em] text-wine transition hover:bg-wine hover:text-white"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </article>
+
+            <!-- EVERGREEN WAVE -->
+            <article class="product-card reveal group">
+              <div
+                class="product-visual relative aspect-[4/5] cursor-pointer overflow-hidden bg-[#dfe5da]"
+                tabindex="0"
+                role="button"
+                aria-label="View Evergreen Wave on a model"
+              >
+                <img
+                  src="assets/products/product-evergreen-wave.png"
+                  alt="Evergreen Wave crochet bag"
+                  class="product-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <img
+                  src="assets/products/model-evergreen-wave.png"
+                  alt="Model wearing the Evergreen Wave crochet bag"
+                  class="model-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <div
+                  class="model-overlay absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 to-transparent px-6 pb-6 pt-20"
+                >
+                  <p
+                    class="text-[9px] font-semibold tracking-[.2em] text-white"
+                  >
+                    VIEW ON MODEL
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-serif text-3xl text-wine">
+                      Evergreen Wave
+                    </h3>
+                    <p class="mt-2 text-[10px] tracking-[.14em] text-ink/45">
+                      HANDCROCHETED
+                    </p>
+                  </div>
+
+                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                </div>
+
+                <button
+                  class="add-cart mt-5 w-full border border-wine/25 py-4 text-[9px] font-semibold tracking-[.17em] text-wine transition hover:bg-wine hover:text-white"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </article>
+
+            <!-- BOLD CHIC -->
+            <article class="product-card reveal group">
+              <div
+                class="product-visual relative aspect-[4/5] cursor-pointer overflow-hidden bg-[#eee9e6]"
+                tabindex="0"
+                role="button"
+                aria-label="View Bold Chic on a model"
+              >
+                <img
+                  src="assets/products/product-bold-chic.png"
+                  alt="Bold Chic crochet bag"
+                  class="product-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <img
+                  src="assets/products/model-bold-chic.png"
+                  alt="Model wearing the Bold Chic crochet bag"
+                  class="model-campaign-image absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+
+                <div
+                  class="model-overlay absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 to-transparent px-6 pb-6 pt-20"
+                >
+                  <p
+                    class="text-[9px] font-semibold tracking-[.2em] text-white"
+                  >
+                    VIEW ON MODEL
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-serif text-3xl text-wine">Bold Chic</h3>
+                    <p class="mt-2 text-[10px] tracking-[.14em] text-ink/45">
+                      HANDCROCHETED
+                    </p>
+                  </div>
+
+                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                </div>
+
+                <button
+                  class="add-cart mt-5 w-full border border-wine/25 py-4 text-[9px] font-semibold tracking-[.17em] text-wine transition hover:bg-wine hover:text-white"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <section
+        class="overflow-hidden border-b border-champagne/30 bg-wine py-6 text-champagne"
+      >
+        <div
+          class="marquee flex w-max whitespace-nowrap font-serif text-3xl tracking-[.06em] md:text-5xl"
+        >
+          <span class="px-8"
+            >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES · </span
+          ><span class="px-8" aria-hidden="true"
+            >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES ·
+          </span>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER / FOOTER -->
+      <footer
+        id="contact"
+        class="bg-[#f2eadf] px-6 pb-10 pt-20 md:px-12 md:pt-28"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div
+            class="grid gap-12 border-b border-wine/15 pb-16 lg:grid-cols-[.8fr_1.2fr]"
+          >
+            <div class="reveal">
+              <p class="font-serif text-4xl text-wine">Stay Connected</p>
+              <p class="mt-3 max-w-sm text-xs font-light leading-6 text-ink/60">
+                Be the first to discover new collections, artisan stories and
+                exclusive offers.
+              </p>
+            </div>
+            <form
+              id="newsletter"
+              class="reveal flex items-end gap-4 border-b border-wine/35 pb-3"
+            >
+              <input
+                required
+                type="email"
+                placeholder="Enter your email address"
+                class="w-full bg-transparent py-3 text-sm outline-none placeholder:text-ink/35"
+              /><button
+                class="rounded-full bg-wine px-7 py-3 text-[9px] font-semibold tracking-[.14em] text-white transition hover:bg-wineDark"
+              >
+                SUBSCRIBE
+              </button>
+            </form>
+          </div>
+          <div class="grid gap-10 py-12 md:grid-cols-4">
+            <div class="md:col-span-2">
+              <p class="font-serif text-4xl tracking-wide text-wine">
+                LOVE CROCHÉ
+              </p>
+              <p class="mt-3 text-[10px] tracking-[.18em] text-ink/45">
+                HANDMADE CROCHET BAGS
+              </p>
+            </div>
+            <div>
+              <p
+                class="mb-4 text-[9px] font-semibold tracking-[.18em] text-wine"
+              >
+                DISCOVER
+              </p>
+              <div class="space-y-3 text-xs text-ink/60">
+                <a class="block hover:text-wine" href="#collection">Shop All</a
+                ><a class="block hover:text-wine" href="#story">Our Story</a
+                ><a class="block hover:text-wine" href="#">Care Guide</a>
+              </div>
+            </div>
+            <div>
+              <p
+                class="mb-4 text-[9px] font-semibold tracking-[.18em] text-wine"
+              >
+                FOLLOW
+              </p>
+              <div class="flex gap-4 text-wine">
+                <a href="#" aria-label="Instagram"
+                  ><i data-lucide="instagram" class="h-5 w-5"></i></a
+                ><a href="#" aria-label="Facebook"
+                  ><i data-lucide="facebook" class="h-5 w-5"></i></a
+                ><a href="#" aria-label="TikTok"
+                  ><i data-lucide="music-2" class="h-5 w-5"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-between gap-3 border-t border-wine/10 pt-7 text-[9px] tracking-[.1em] text-ink/40 sm:flex-row"
+          >
+            <p>© 2026 LOVE CROCHÉ. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-6">
+              <a href="#">PRIVACY</a><a href="#">TERMS</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div
+      id="toast"
+      class="fixed bottom-6 right-6 z-[70] translate-y-8 rounded-sm bg-wine px-6 py-4 text-xs tracking-wide text-white opacity-0 shadow-2xl transition duration-300"
+    >
+      Added to your bag.
+    </div>
+
+    <!-- Icons + premium animation CDNs -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      lucide.createIcons();
+      gsap.registerPlugin(ScrollTrigger);
+
+      const $ = (s, c = document) => c.querySelector(s);
+      const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+      const video = $("#heroVideo");
+      const poster = $("#heroPoster");
+      const progressFill = $("#progressFill");
+      const progressText = $("#progressText");
+      const heroCopy = $("#heroCopy");
+      const heroSection = $("#home");
+      let videoReady = false;
+      let videoInitialized = false;
+      let frameRequested = false;
+
+      function updateHeroFrame() {
+        frameRequested = false;
+        if (!videoReady) return;
+
+        const scrollableDistance = Math.max(
+          1,
+          heroSection.offsetHeight - window.innerHeight,
+        );
+        const travelled = Math.min(
+          Math.max(-heroSection.getBoundingClientRect().top, 0),
+          scrollableDistance,
+        );
+        const progress = travelled / scrollableDistance;
+        const nextTime = progress * Math.max(0, video.duration - 0.04);
+
+        /* Direct mapping like the reference: no scrub delay and no easing. */
+        if (Math.abs(video.currentTime - nextTime) >= 1 / 60) {
+          video.currentTime = nextTime;
+        }
+
+        progressFill.style.transform = `scaleX(${progress})`;
+        progressText.textContent = String(Math.round(progress * 100)).padStart(
+          2,
+          "0",
+        );
+
+        /* Keep the hero heading steady for the entire video journey. */
+        heroCopy.style.opacity = "1";
+        heroCopy.style.transform = "translate3d(0, 0, 0)";
+      }
+
+      function requestHeroFrame() {
+        if (frameRequested) return;
+        frameRequested = true;
+        requestAnimationFrame(updateHeroFrame);
+      }
+
+      function initializeVideo() {
+        const hasMetadata =
+          video.readyState >= 1 &&
+          Number.isFinite(video.duration) &&
+          video.duration > 0;
+
+        if (!hasMetadata) return;
+
+        videoReady = true;
+        if (videoInitialized) {
+          requestHeroFrame();
+          return;
+        }
+        videoInitialized = true;
+
+        video.pause();
+        video.currentTime = 0.001;
+
+        video.classList.remove("opacity-0");
+        poster.style.opacity = "0";
+        requestHeroFrame();
+        console.log("Hero video ready:", video.duration);
+      }
+
+      /* Multiple readiness events prevent cached videos from missing init. */
+      ["loadedmetadata", "loadeddata", "durationchange", "canplay"].forEach(
+        (eventName) => video.addEventListener(eventName, initializeVideo),
+      );
+
+      // Makikita sa Console kapag hindi makita o mabasa ang MP4
+      video.addEventListener("error", () => {
+        console.error("Hero video failed to load:", video.currentSrc);
+
+        videoReady = false;
+        video.classList.add("opacity-0");
+        poster.style.opacity = "1";
+      });
+
+      video.load();
+      initializeVideo();
+      setTimeout(initializeVideo, 250);
+      setTimeout(initializeVideo, 1000);
+
+      window.addEventListener("scroll", requestHeroFrame, { passive: true });
+      window.addEventListener("resize", requestHeroFrame, { passive: true });
+
+      // Section entrance animations
+      $$(".reveal").forEach((el) =>
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 86%", once: true },
+        }),
+      );
+
+      // Mobile navigation
+      const menu = $("#mobileMenu");
+      $("#menuButton").addEventListener("click", () =>
+        menu.classList.toggle("is-open"),
+      );
+      $$(".mobile-link").forEach((link) =>
+        link.addEventListener("click", () => menu.classList.remove("is-open")),
+      );
+
+      // Cart demo interactions
+      let count = 0;
+      const toast = $("#toast");
+      $$(".add-cart").forEach((button) =>
+        button.addEventListener("click", () => {
+          $("#cartCount").textContent = ++count;
+          toast.classList.remove("translate-y-8", "opacity-0");
+          setTimeout(
+            () => toast.classList.add("translate-y-8", "opacity-0"),
+            1800,
+          );
+        }),
+      );
+      $("#cartButton").addEventListener("click", () => {
+        toast.textContent = count
+          ? `${count} item${count > 1 ? "s" : ""} in your bag.`
+          : "Your bag is empty.";
+        toast.classList.remove("translate-y-8", "opacity-0");
+        setTimeout(() => {
+          toast.classList.add("translate-y-8", "opacity-0");
+          toast.textContent = "Added to your bag.";
+        }, 1800);
+      });
+
+      $("#newsletter").addEventListener("submit", (e) => {
+        e.preventDefault();
+        toast.textContent = "Welcome to Love Croché.";
+        toast.classList.remove("translate-y-8", "opacity-0");
+        e.target.reset();
+        setTimeout(
+          () => toast.classList.add("translate-y-8", "opacity-0"),
+          1800,
+        );
+      });
+
+      window.addEventListener("load", () => {
+        setTimeout(() => $("#loader").classList.add("is-hidden"), 550);
+        ScrollTrigger.refresh();
+      });
+      // Product image/model image switch for touch devices
+      const productVisuals = document.querySelectorAll(".product-visual");
+
+      productVisuals.forEach((visual) => {
+        visual.addEventListener("click", () => {
+          if (!window.matchMedia("(hover: none)").matches) return;
+
+          productVisuals.forEach((item) => {
+            if (item !== visual) {
+              item.classList.remove("is-model-visible");
+              item.setAttribute("aria-pressed", "false");
+            }
+          });
+
+          const isVisible = visual.classList.toggle("is-model-visible");
+          visual.setAttribute("aria-pressed", String(isVisible));
+        });
+
+        visual.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+
+          event.preventDefault();
+          const isVisible = visual.classList.toggle("is-model-visible");
+          visual.setAttribute("aria-pressed", String(isVisible));
+        });
+      });
+    </script>
+  </body>
+</html>
