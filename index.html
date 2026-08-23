@@ -164,14 +164,7 @@
       .bag-green {
         filter: hue-rotate(65deg) saturate(0.8) brightness(0.8);
       }
-      .marquee {
-        animation: marquee 24s linear infinite;
-      }
-      @keyframes marquee {
-        to {
-          transform: translateX(-50%);
-        }
-      }
+
       .loader {
         transition:
           opacity 0.5s ease,
@@ -304,31 +297,69 @@
           transition: none;
         }
       }
+
+      /* SEAMLESS CONTINUOUS MARQUEE */
+      .marquee-wrapper {
+        width: 100%;
+        overflow: hidden;
+
+        /* No left and right fade */
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
       .marquee-track {
-        animation: marquee-scroll 28s linear infinite;
+        display: flex;
+        width: max-content;
+        animation: continuous-marquee 28s linear infinite;
         will-change: transform;
       }
 
-      @keyframes marquee-scroll {
+      .marquee-group {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      .marquee-group span {
+        flex-shrink: 0;
+        padding-right: 2.5rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.1rem, 1.8vw, 1.55rem);
+        letter-spacing: 0.12em;
+        color: #d6af68;
+      }
+
+      @keyframes continuous-marquee {
         from {
-          transform: translateX(0);
+          transform: translate3d(0, 0, 0);
         }
 
         to {
-          transform: translateX(-50%);
+          transform: translate3d(-50%, 0, 0);
         }
       }
 
       @media (prefers-reduced-motion: reduce) {
         .marquee-track {
-          animation-play-state: paused;
+          animation: none;
         }
       }
+
       .hero-fade {
         opacity: 1;
         transform: translateY(0);
         filter: blur(0);
         will-change: opacity, transform, filter;
+      }
+
+      .hero-end-image {
+        z-index: 3;
+        opacity: 0;
+        pointer-events: none;
+        will-change: opacity;
+        object-position: center 54%;
       }
     </style>
   </head>
@@ -926,24 +957,34 @@
         </div>
       </section>
 
-      <!-- MARQUEE -->
-      <!-- ELEGANT MARQUEE BAR -->
+      <!-- SEAMLESS CONTINUOUS MARQUEE -->
       <section
-        class="overflow-hidden border-y border-champagne/25 bg-wine py-3 md:py-4"
+        class="marquee-wrapper border-y border-champagne/25 bg-wine py-3 md:py-4"
       >
-        <div class="marquee-track flex w-max items-center">
-          <p
-            class="whitespace-nowrap font-serif text-lg tracking-[.12em] text-champagne md:text-2xl"
-          >
-            HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES ·
-          </p>
+        <div class="marquee-track">
+          <!-- Group 1 -->
+          <div class="marquee-group">
+            <span
+              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
+              ·</span
+            >
+            <span
+              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
+              ·</span
+            >
+          </div>
 
-          <p
-            aria-hidden="true"
-            class="whitespace-nowrap font-serif text-lg tracking-[.12em] text-champagne md:text-2xl"
-          >
-            HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES ·
-          </p>
+          <!-- Exact duplicate -->
+          <div class="marquee-group" aria-hidden="true">
+            <span
+              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
+              ·</span
+            >
+            <span
+              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
+              ·</span
+            >
+          </div>
         </div>
       </section>
 
@@ -1079,7 +1120,7 @@
          * 94–100%  : video crossfades into the exact boutique image
          */
         const startOpacity = gsap.utils.clamp(0, 1, 1 - progress / 0.035);
-        const endOpacity = gsap.utils.clamp(0, 1, (progress - 0.94) / 0.06);
+        const endOpacity = gsap.utils.clamp(0, 1, (progress - 0.985) / 0.015);
 
         poster.style.opacity = String(startOpacity);
         endImage.style.opacity = String(endOpacity);
