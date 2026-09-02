@@ -58,6 +58,7 @@
         background: #f8f3eb;
       }
       #story,
+      #about,
       #collection,
       #contact {
         scroll-margin-top: 80px;
@@ -397,7 +398,7 @@
         >
           <a class="nav-link relative" href="#collection">SHOP</a>
           <a class="nav-link relative" href="#collection">COLLECTIONS</a>
-          <a class="nav-link relative" href="#story">OUR STORY</a>
+          <a class="nav-link relative" href="#about">OUR STORY</a>
           <a class="nav-link relative" href="#contact">CONTACT</a>
         </nav>
 
@@ -444,7 +445,7 @@
       <nav class="space-y-5 font-serif text-4xl">
         <a class="mobile-link block" href="#collection">Shop</a>
         <a class="mobile-link block" href="#collection">Collections</a>
-        <a class="mobile-link block" href="#story">Our Story</a>
+        <a class="mobile-link block" href="#about">Our Story</a>
         <a class="mobile-link block" href="#contact">Contact</a>
       </nav>
     </div>
@@ -507,7 +508,7 @@
 
             <!-- Description -->
             <p
-              class="hero-fade mt-10 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
+              class="hero-fade mt-7 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
             >
               Timeless crochet bags, crafted stitch by stitch.
             </p>
@@ -583,6 +584,143 @@
               class="mt-8 inline-flex items-center gap-5 rounded-full border border-wine/40 px-7 py-3 text-[10px] font-semibold tracking-[.15em] text-wine transition hover:bg-wine hover:text-white"
               >OUR STORY <i data-lucide="arrow-right" class="h-4 w-4"></i
             ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT THE ARTIST -->
+      <section
+        id="about"
+        class="relative overflow-hidden border-t border-wine/10 bg-[#f5eee4] px-6 py-16 md:px-12 md:py-20 lg:py-24"
+      >
+        <!-- Decorative yarn line -->
+        <svg
+          aria-hidden="true"
+          class="pointer-events-none absolute -right-24 top-12 hidden h-[620px] w-[360px] text-champagne/25 lg:block"
+          viewBox="0 0 360 620"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M280 0C164 94 354 164 253 259C151 355 345 381 237 481C179 535 170 570 214 620"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-dasharray="3 8"
+          />
+        </svg>
+
+        <div
+          class="mx-auto grid max-w-[1380px] items-center gap-14 lg:grid-cols-[1.08fr_.92fr] lg:gap-20 xl:gap-28"
+        >
+          <!-- IMAGE -->
+          <div class="reveal relative">
+            <div class="relative overflow-hidden rounded-[2px] bg-[#d9c8b6]">
+              <img
+                src="assets/img/about-marianne-photo-only.png"
+                alt="Marianne, creator of Love Croché, hand crocheting a bag"
+                class="h-[520px] w-full object-cover object-center transition duration-[1400ms] ease-out hover:scale-[1.015] lg:h-[620px]"
+                loading="lazy"
+              />
+
+              <!-- subtle image gradient -->
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2c1712]/20 via-transparent to-transparent"
+              ></div>
+
+              <!-- small image caption -->
+              <div
+                class="absolute bottom-5 left-5 border border-white/25 bg-[#291712]/25 px-4 py-3 text-[8px] font-medium tracking-[.2em] text-white backdrop-blur-md md:bottom-7 md:left-7"
+              >
+                MADE BY HAND · STITCH BY STITCH
+              </div>
+            </div>
+
+            <!-- Small gold detail -->
+            <div
+              class="absolute -bottom-5 right-7 hidden items-center gap-4 bg-[#f5eee4] px-5 py-3 md:flex"
+            >
+              <span class="block h-px w-12 bg-champagne"></span>
+              <span class="font-serif text-lg italic text-wine">
+                Handmade with love
+              </span>
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="reveal relative lg:pr-10">
+            <!-- eyebrow -->
+            <div class="mb-5 flex items-center gap-4">
+              <span class="h-px w-10 bg-champagne"></span>
+
+              <p class="text-[10px] font-semibold tracking-[.3em] text-wine">
+                OUR STORY
+              </p>
+            </div>
+
+            <!-- heading -->
+            <h2
+              class="max-w-[600px] font-serif text-[clamp(3.2rem,4.8vw,5.5rem)] leading-[.88] tracking-[-.035em] text-wine"
+            >
+              Woven by Hand.<br />
+              <span class="text-[#7b2029]">Made with Heart.</span>
+            </h2>
+
+            <!-- gold separator -->
+            <div class="my-7 flex items-center gap-3">
+              <span class="h-px w-16 bg-champagne"></span>
+
+              <span
+                class="block h-2 w-2 rotate-45 border border-champagne"
+              ></span>
+
+              <span class="h-px w-8 bg-champagne"></span>
+            </div>
+
+            <!-- copy -->
+            <div
+              class="max-w-[570px] space-y-5 text-[13px] font-light leading-7 text-ink/70 md:text-sm md:leading-8"
+            >
+              <p>
+                Behind every Love Croché piece is Marianne — an artist who turns
+                simple strands of yarn into something personal, beautiful, and
+                made to be treasured.
+              </p>
+
+              <p>
+                Each bag is patiently crocheted by hand, stitch by stitch,
+                carrying the character and thoughtful details that can only come
+                from something genuinely handmade.
+              </p>
+            </div>
+
+            <!-- signature -->
+            <div class="mt-7">
+              <p
+                class="font-serif text-5xl italic leading-none text-wine md:text-6xl"
+              >
+                Marianne
+              </p>
+
+              <p
+                class="mt-3 text-[9px] font-semibold tracking-[.22em] text-[#b18442] md:text-[10px]"
+              >
+                CREATOR &amp; CROCHET ARTIST
+              </p>
+            </div>
+
+            <!-- CTA -->
+            <a
+              href="#collection"
+              class="group mt-7 inline-flex items-center gap-8 border border-wine/45 px-7 py-4 text-[9px] font-semibold tracking-[.18em] text-wine transition duration-300 hover:bg-wine hover:text-white md:px-9 md:py-5"
+            >
+              DISCOVER OUR STORY
+
+              <i
+                data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              ></i>
+            </a>
           </div>
         </div>
       </section>
@@ -1037,7 +1175,7 @@
               </p>
               <div class="space-y-3 text-xs text-ink/60">
                 <a class="block hover:text-wine" href="#collection">Shop All</a
-                ><a class="block hover:text-wine" href="#story">Our Story</a
+                ><a class="block hover:text-wine" href="#about">Our Story</a
                 ><a class="block hover:text-wine" href="#">Care Guide</a>
               </div>
             </div>
