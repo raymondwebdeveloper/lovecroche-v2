@@ -89,7 +89,8 @@
       .hero-sticky {
         position: sticky;
         top: 0;
-        height: 100svh;
+        height: 100vh;
+        height: 100dvh;
         overflow: hidden;
         background: #130d0b;
       }
@@ -1300,9 +1301,13 @@
         frameRequested = false;
         if (!videoReady) return;
 
+        const heroViewportHeight = document
+          .querySelector(".hero-sticky")
+          .getBoundingClientRect().height;
+
         const scrollableDistance = Math.max(
           1,
-          heroSection.offsetHeight - window.innerHeight,
+          heroSection.offsetHeight - heroViewportHeight,
         );
         const travelled = Math.min(
           Math.max(-heroSection.getBoundingClientRect().top, 0),
