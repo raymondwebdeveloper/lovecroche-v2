@@ -393,6 +393,97 @@
         will-change: opacity;
         object-position: center 54%;
       }
+
+      /* LOVE CROCHÉ — Golden Fairy Lights */
+
+      /* =========================================
+   LOVE CROCHÉ — LUXURY BURGUNDY FOOTER
+========================================= */
+
+      .lc-footer {
+        background:
+          radial-gradient(
+            ellipse at 50% 95%,
+            rgba(157, 39, 36, 0.38),
+            transparent 58%
+          ),
+          linear-gradient(180deg, #650915 0%, #760d1b 42%, #5b0711 100%);
+      }
+
+      /* Warm ambient illumination */
+      .lc-ambient {
+        background:
+          radial-gradient(
+            ellipse at 10% 100%,
+            rgba(255, 162, 66, 0.19),
+            transparent 38%
+          ),
+          radial-gradient(
+            ellipse at 90% 100%,
+            rgba(255, 176, 76, 0.15),
+            transparent 38%
+          ),
+          radial-gradient(
+            ellipse at 50% 70%,
+            rgba(178, 30, 35, 0.12),
+            transparent 65%
+          );
+      }
+
+      /* Golden light area */
+      .lc-fairy-scene {
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(160, 37, 28, 0.05) 35%,
+          rgba(255, 158, 56, 0.07) 80%,
+          rgba(255, 169, 59, 0.12) 100%
+        );
+      }
+
+      /* Firefly particles */
+      .lc-firefly {
+        position: absolute;
+        display: block;
+        width: var(--size, 4px);
+        height: var(--size, 4px);
+        border-radius: 50%;
+        background: #fff1c5;
+        opacity: 0;
+
+        box-shadow:
+          0 0 5px 2px rgba(255, 229, 151, 0.85),
+          0 0 15px 5px rgba(255, 181, 64, 0.55),
+          0 0 35px 10px rgba(255, 146, 41, 0.18);
+
+        will-change: transform, opacity;
+      }
+
+      /* SVG light waves */
+      .lc-light-waves {
+        display: none !important;
+      }
+
+      .lc-wave-one,
+      .lc-wave-two {
+        transform-origin: center;
+        will-change: transform;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .lc-firefly {
+          opacity: 0.55;
+        }
+
+        .lc-wave-one,
+        .lc-wave-two {
+          will-change: auto;
+        }
+      }
+
+      .d-none {
+        display: none !important;
+      }
     </style>
   </head>
 
@@ -806,7 +897,7 @@
 
                 <!-- Product image -->
                 <img
-                  src="assets/products/product-maroon-harmony.png"
+                  src="assets/products/product-maroon-harmony.webp"
                   alt="Maroon Harmony crochet bag"
                   class="product-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -814,7 +905,7 @@
 
                 <!-- Model image -->
                 <img
-                  src="assets/products/model-maroon-harmony.png"
+                  src="assets/products/model-maroon-harmony.webp"
                   alt="Model wearing the Maroon Harmony crochet bag"
                   class="model-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -842,7 +933,7 @@
                     </p>
                   </div>
 
-                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                  <p class="whitespace-nowrap pt-1 text-sm">₱499</p>
                 </div>
 
                 <button
@@ -862,14 +953,14 @@
                 aria-label="View Classic Black on a model"
               >
                 <img
-                  src="assets/products/product-classic-black.png"
+                  src="assets/products/product-classic-black.webp"
                   alt="Classic Black crochet bag"
                   class="product-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
 
                 <img
-                  src="assets/products/model-classic-black.png"
+                  src="assets/products/model-classic-black.webp"
                   alt="Model wearing the Classic Black crochet bag"
                   class="model-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -895,7 +986,7 @@
                     </p>
                   </div>
 
-                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                  <p class="whitespace-nowrap pt-1 text-sm">₱499</p>
                 </div>
 
                 <button
@@ -915,14 +1006,14 @@
                 aria-label="View Beige Heart on a model"
               >
                 <img
-                  src="assets/products/product-beige-heart.png"
+                  src="assets/products/product-beige-heart.webp"
                   alt="Beige Heart crochet bag"
                   class="product-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
 
                 <img
-                  src="assets/products/model-beige-heart.png"
+                  src="assets/products/model-beige-heart.webp"
                   alt="Model wearing the Beige Heart crochet bag"
                   class="model-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -948,7 +1039,7 @@
                     </p>
                   </div>
 
-                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                  <p class="whitespace-nowrap pt-1 text-sm">₱499</p>
                 </div>
 
                 <button
@@ -968,14 +1059,14 @@
                 aria-label="View Blush Dream on a model"
               >
                 <img
-                  src="assets/products/product-blush-dream.png"
+                  src="assets/products/product-blush-dream.webp"
                   alt="Blush Dream crochet bag"
                   class="product-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
 
                 <img
-                  src="assets/products/model-blush-dream.png"
+                  src="assets/products/model-blush-dream.webp"
                   alt="Model wearing the Blush Dream crochet bag"
                   class="model-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -1001,7 +1092,7 @@
                     </p>
                   </div>
 
-                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                  <p class="whitespace-nowrap pt-1 text-sm">₱499</p>
                 </div>
 
                 <button
@@ -1021,14 +1112,14 @@
                 aria-label="View Evergreen Wave on a model"
               >
                 <img
-                  src="assets/products/product-evergreen-wave.png"
+                  src="assets/products/product-evergreen-wave.webp"
                   alt="Evergreen Wave crochet bag"
                   class="product-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
 
                 <img
-                  src="assets/products/model-evergreen-wave.png"
+                  src="assets/products/model-evergreen-wave.webp"
                   alt="Model wearing the Evergreen Wave crochet bag"
                   class="model-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -1056,7 +1147,7 @@
                     </p>
                   </div>
 
-                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                  <p class="whitespace-nowrap pt-1 text-sm">₱499</p>
                 </div>
 
                 <button
@@ -1076,14 +1167,14 @@
                 aria-label="View Bold Chic on a model"
               >
                 <img
-                  src="assets/products/product-bold-chic.png"
+                  src="assets/products/product-bold-chic.webp"
                   alt="Bold Chic crochet bag"
                   class="product-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
 
                 <img
-                  src="assets/products/model-bold-chic.png"
+                  src="assets/products/model-bold-chic.webp"
                   alt="Model wearing the Bold Chic crochet bag"
                   class="model-campaign-image absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
@@ -1109,7 +1200,7 @@
                     </p>
                   </div>
 
-                  <p class="whitespace-nowrap pt-1 text-sm">₱2,490</p>
+                  <p class="whitespace-nowrap pt-1 text-sm">₱499</p>
                 </div>
 
                 <button
@@ -1123,113 +1214,215 @@
         </div>
       </section>
 
-      <!-- SEAMLESS CONTINUOUS MARQUEE -->
-      <section
-        class="marquee-wrapper border-y border-champagne/25 bg-wine py-3 md:py-4"
-      >
-        <div class="marquee-track">
-          <!-- Group 1 -->
-          <div class="marquee-group">
-            <span
-              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
-              ·</span
-            >
-            <span
-              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
-              ·</span
-            >
-          </div>
-
-          <!-- Exact duplicate -->
-          <div class="marquee-group" aria-hidden="true">
-            <span
-              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
-              ·</span
-            >
-            <span
-              >HANDMADE · HEARTFELT · TIMELESS · CRAFTED IN SMALL BATCHES
-              ·</span
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- NEWSLETTER / FOOTER -->
+      <!-- LOVE CROCHÉ — BURGUNDY FOOTER -->
       <footer
         id="contact"
-        class="bg-[#f2eadf] px-6 pb-10 pt-20 md:px-12 md:pt-28"
+        class="lc-footer relative isolate overflow-hidden px-6 pb-28 pt-6 md:px-12 md:pb-36 md:pt-6"
       >
-        <div class="mx-auto max-w-7xl">
+        <!-- Ambient lighting -->
+        <div
+          class="lc-ambient pointer-events-none absolute inset-0 z-0"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Golden fairy lights and animated waves -->
+        <div
+          class="lc-fairy-scene pointer-events-none absolute inset-x-0 bottom-0 z-0 h-44 md:h-56"
+          aria-hidden="true"
+        >
+          <div class="lc-particles absolute inset-0"></div>
+
+          <svg
+            class="lc-light-waves absolute inset-x-0 bottom-0 h-full w-full"
+            viewBox="0 0 1440 220"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="lcGoldGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#d99b48" />
+                <stop offset="35%" stop-color="#fff0b2" />
+                <stop offset="70%" stop-color="#f4bb5b" />
+                <stop offset="100%" stop-color="#ffe3a0" />
+              </linearGradient>
+
+              <filter
+                id="lcWaveGlow"
+                x="-30%"
+                y="-200%"
+                width="160%"
+                height="500%"
+              >
+                <feGaussianBlur stdDeviation="5" />
+              </filter>
+            </defs>
+
+            <g class="lc-wave-one">
+              <path
+                d="M-100 150 C120 45 260 210 480 155 S780 65 990 150 S1300 210 1540 90"
+                fill="none"
+                stroke="#f6ab45"
+                stroke-width="14"
+                opacity=".38"
+                filter="url(#lcWaveGlow)"
+              />
+              <path
+                d="M-100 150 C120 45 260 210 480 155 S780 65 990 150 S1300 210 1540 90"
+                fill="none"
+                stroke="url(#lcGoldGradient)"
+                stroke-width="2.8"
+                stroke-linecap="round"
+              />
+            </g>
+
+            <g class="lc-wave-two">
+              <path
+                d="M-100 185 C160 115 285 225 520 175 S810 125 1030 185 S1340 80 1540 160"
+                fill="none"
+                stroke="#eea24b"
+                stroke-width="12"
+                opacity=".3"
+                filter="url(#lcWaveGlow)"
+              />
+              <path
+                d="M-100 185 C160 115 285 225 520 175 S810 125 1030 185 S1340 80 1540 160"
+                fill="none"
+                stroke="url(#lcGoldGradient)"
+                stroke-width="1.8"
+                opacity=".85"
+              />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Footer content -->
+        <div class="relative z-10 mx-auto max-w-7xl">
+          <!-- Newsletter -->
           <div
-            class="grid gap-12 border-b border-wine/15 pb-16 lg:grid-cols-[.8fr_1.2fr]"
+            class="d-none grid gap-10 border-b border-[#e4bd84]/30 pb-14 lg:grid-cols-[.8fr_1.2fr] lg:items-center"
           >
             <div class="reveal">
-              <p class="font-serif text-4xl text-wine">Stay Connected</p>
-              <p class="mt-3 max-w-sm text-xs font-light leading-6 text-ink/60">
+              <p class="font-serif text-4xl text-[#f3d5a0] md:text-5xl">
+                Stay Connected
+              </p>
+              <p
+                class="mt-4 max-w-sm text-xs font-light leading-7 text-[#f4e5d6]/80"
+              >
                 Be the first to discover new collections, artisan stories and
                 exclusive offers.
               </p>
             </div>
+
             <form
               id="newsletter"
-              class="reveal flex items-end gap-4 border-b border-wine/35 pb-3"
+              class="reveal flex flex-col gap-4 sm:flex-row sm:items-end"
             >
               <input
                 required
                 type="email"
                 placeholder="Enter your email address"
-                class="w-full bg-transparent py-3 text-sm outline-none placeholder:text-ink/35"
-              /><button
-                class="rounded-full bg-wine px-7 py-3 text-[9px] font-semibold tracking-[.14em] text-white transition hover:bg-wineDark"
+                aria-label="Email address"
+                class="min-w-0 flex-1 border-b border-[#e4bd84]/65 bg-transparent px-0 py-4 text-sm text-[#fff5e7] outline-none transition placeholder:text-[#f0dcc8]/65 focus:border-[#ffe4a0]"
+              />
+
+              <button
+                type="submit"
+                class="shrink-0 rounded-full bg-[#f6e5ce] px-8 py-3.5 text-[10px] font-bold tracking-[.14em] text-[#68141f] transition duration-300 hover:bg-[#ffd996] hover:shadow-[0_0_25px_rgba(255,208,124,.35)]"
               >
                 SUBSCRIBE
               </button>
             </form>
           </div>
-          <div class="grid gap-10 py-12 md:grid-cols-4">
+
+          <!-- Footer links -->
+          <div class="grid gap-12 py-14 md:grid-cols-4">
+            <!-- Brand -->
             <div class="md:col-span-2">
-              <p class="font-serif text-4xl tracking-wide text-wine">
+              <p
+                class="font-serif text-4xl tracking-wide text-[#fff0d8] md:text-5xl"
+              >
                 LOVE CROCHÉ
               </p>
-              <p class="mt-3 text-[10px] tracking-[.18em] text-ink/45">
+              <p
+                class="mt-4 text-[10px] font-medium tracking-[.22em] text-[#e5b980]"
+              >
                 HANDMADE CROCHET BAGS
               </p>
             </div>
+
+            <!-- Discover -->
             <div>
               <p
-                class="mb-4 text-[9px] font-semibold tracking-[.18em] text-wine"
+                class="mb-5 text-[10px] font-semibold tracking-[.2em] text-[#f2cb87]"
               >
                 DISCOVER
               </p>
-              <div class="space-y-3 text-xs text-ink/60">
-                <a class="block hover:text-wine" href="#collection">Shop All</a
-                ><a class="block hover:text-wine" href="#about">Our Story</a
-                ><a class="block hover:text-wine" href="#">Care Guide</a>
+
+              <div class="space-y-3 text-xs text-[#f5e8dc]/85">
+                <a
+                  class="block transition hover:text-[#ffd994]"
+                  href="#collection"
+                >
+                  Shop All
+                </a>
+                <a class="block transition hover:text-[#ffd994]" href="#about">
+                  Our Story
+                </a>
+                <a class="block transition hover:text-[#ffd994]" href="#">
+                  Care Guide
+                </a>
               </div>
             </div>
+
+            <!-- Socials -->
             <div>
               <p
-                class="mb-4 text-[9px] font-semibold tracking-[.18em] text-wine"
+                class="mb-5 text-[10px] font-semibold tracking-[.2em] text-[#f2cb87]"
               >
                 FOLLOW
               </p>
-              <div class="flex gap-4 text-wine">
-                <a href="#" aria-label="Instagram"
-                  ><i data-lucide="instagram" class="h-5 w-5"></i></a
-                ><a href="#" aria-label="Facebook"
-                  ><i data-lucide="facebook" class="h-5 w-5"></i></a
-                ><a href="#" aria-label="TikTok"
-                  ><i data-lucide="music-2" class="h-5 w-5"></i
-                ></a>
+
+              <div class="flex items-center gap-6 text-[#f6deb2]">
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  class="transition duration-300 hover:-translate-y-1 hover:text-white"
+                >
+                  <i data-lucide="instagram" class="h-5 w-5"></i>
+                </a>
+
+                <a
+                  href="#"
+                  aria-label="Facebook"
+                  class="transition duration-300 hover:-translate-y-1 hover:text-white"
+                >
+                  <i data-lucide="facebook" class="h-5 w-5"></i>
+                </a>
+
+                <a
+                  href="#"
+                  aria-label="TikTok"
+                  class="transition duration-300 hover:-translate-y-1 hover:text-white"
+                >
+                  <i data-lucide="music-2" class="h-5 w-5"></i>
+                </a>
               </div>
             </div>
           </div>
+
+          <!-- Copyright -->
           <div
-            class="flex flex-col justify-between gap-3 border-t border-wine/10 pt-7 text-[9px] tracking-[.1em] text-ink/40 sm:flex-row"
+            class="flex flex-col justify-between gap-4 border-t border-[#e4bd84]/30 pt-7 text-[9px] tracking-[.14em] text-[#f1dfc9]/80 sm:flex-row"
           >
             <p>© 2026 LOVE CROCHÉ. ALL RIGHTS RESERVED.</p>
-            <div class="flex gap-6">
-              <a href="#">PRIVACY</a><a href="#">TERMS</a>
+
+            <div class="flex gap-7">
+              <a
+                href="https://www.linkedin.com/in/raymondweb/"
+                target="_blank"
+                class="transition hover:text-[#ffd994]"
+              >
+                DEVELOPER
+              </a>
             </div>
           </div>
         </div>
@@ -1773,6 +1966,150 @@
           from: "start",
         },
         ease: "none",
+      });
+
+      // Footer animations
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const footer = document.querySelector(".lc-footer");
+        if (!footer || typeof gsap === "undefined") return;
+
+        const particles = footer.querySelector(".lc-particles");
+        if (!particles) return;
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        const hasMouse = window.matchMedia(
+          "(hover: hover) and (pointer: fine)",
+        ).matches;
+
+        const count = window.innerWidth < 768 ? 25 : 55;
+        const lights = [];
+
+        // Cursor interaction radius in pixels
+        const hoverRadius = 65;
+
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement("span");
+          dot.className = "lc-firefly";
+
+          const size = gsap.utils.random(1.5, 5.5);
+
+          dot.style.setProperty("--size", `${size}px`);
+          dot.style.left = `${gsap.utils.random(0, 100)}%`;
+          dot.style.top = `${gsap.utils.random(15, 100)}%`;
+
+          particles.appendChild(dot);
+
+          if (reduceMotion) {
+            gsap.set(dot, { opacity: 0.65 });
+            continue;
+          }
+
+          const floatAnim = gsap.to(dot, {
+            x: gsap.utils.random(-45, 45),
+            y: -gsap.utils.random(35, 110),
+            duration: gsap.utils.random(4, 9),
+            delay: gsap.utils.random(0, 5),
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+          });
+
+          const glowAnim = gsap.to(dot, {
+            opacity: gsap.utils.random(0.45, 0.95),
+            scale: gsap.utils.random(0.7, 1.6),
+            duration: gsap.utils.random(1.5, 3.5),
+            delay: gsap.utils.random(0, 3),
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+          });
+
+          lights.push({
+            element: dot,
+            floatAnim,
+            glowAnim,
+            paused: false,
+          });
+        }
+
+        // Stop lights near the mouse pointer
+        if (hasMouse && !reduceMotion) {
+          let mouseX = -1000;
+          let mouseY = -1000;
+          let framePending = false;
+
+          function updateLights() {
+            framePending = false;
+
+            lights.forEach((light) => {
+              const rect = light.element.getBoundingClientRect();
+
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+
+              const distance = Math.hypot(mouseX - centerX, mouseY - centerY);
+
+              const shouldPause = distance < hoverRadius;
+
+              if (shouldPause === light.paused) return;
+
+              light.paused = shouldPause;
+
+              // Smooth pause / resume
+              gsap.to([light.floatAnim, light.glowAnim], {
+                timeScale: shouldPause ? 0 : 1,
+                duration: 0.4,
+                ease: "power2.out",
+                overwrite: true,
+              });
+            });
+          }
+
+          function scheduleUpdate() {
+            if (framePending) return;
+
+            framePending = true;
+            requestAnimationFrame(updateLights);
+          }
+
+          footer.addEventListener("pointermove", (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            scheduleUpdate();
+          });
+
+          footer.addEventListener("pointerleave", () => {
+            mouseX = -1000;
+            mouseY = -1000;
+            scheduleUpdate();
+          });
+
+          // Continue checking as lights move under a stationary cursor.
+          gsap.ticker.add(() => {
+            if (mouseX !== -1000) {
+              scheduleUpdate();
+            }
+          });
+        }
+
+        // Ambient lighting animation
+        if (!reduceMotion) {
+          const ambient = footer.querySelector(".lc-ambient");
+
+          if (ambient) {
+            gsap.to(ambient, {
+              opacity: 0.55,
+              duration: 4,
+              ease: "sine.inOut",
+              repeat: -1,
+              yoyo: true,
+            });
+          }
+        }
       });
     </script>
   </body>
